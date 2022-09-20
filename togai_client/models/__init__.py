@@ -1,0 +1,90 @@
+# flake8: noqa
+
+# import all models into this package
+# if you have many models here with many references from one model to another this may
+# raise a RecursionError
+# to avoid this, import only the models that you directly need like:
+# from from togai_client.model.pet import Pet
+# or import this package, but before doing it, use:
+# import sys
+# sys.setrecursionlimit(n)
+
+from togai_client.model.account import Account
+from togai_client.model.account_aliases import AccountAliases
+from togai_client.model.account_paginated_response import AccountPaginatedResponse
+from togai_client.model.add_account_aliases_request import AddAccountAliasesRequest
+from togai_client.model.associate_price_plan_request import AssociatePricePlanRequest
+from togai_client.model.associate_price_plan_response import AssociatePricePlanResponse
+from togai_client.model.base_success_response import BaseSuccessResponse
+from togai_client.model.bundle_strategy import BundleStrategy
+from togai_client.model.bundle_strategy_usage_meters_value import BundleStrategyUsageMetersValue
+from togai_client.model.create_account_request import CreateAccountRequest
+from togai_client.model.create_customer_request import CreateCustomerRequest
+from togai_client.model.create_customer_response import CreateCustomerResponse
+from togai_client.model.create_event_schema_request import CreateEventSchemaRequest
+from togai_client.model.create_price_plan_request import CreatePricePlanRequest
+from togai_client.model.create_usage_meter_request import CreateUsageMeterRequest
+from togai_client.model.customer import Customer
+from togai_client.model.customer_paginated_response import CustomerPaginatedResponse
+from togai_client.model.dimensions import Dimensions
+from togai_client.model.dimensions_schema import DimensionsSchema
+from togai_client.model.error_response import ErrorResponse
+from togai_client.model.event import Event
+from togai_client.model.event_attribute import EventAttribute
+from togai_client.model.event_attribute_schema import EventAttributeSchema
+from togai_client.model.event_pipeline_info import EventPipelineInfo
+from togai_client.model.event_pipeline_info_account import EventPipelineInfoAccount
+from togai_client.model.event_pipeline_info_customer import EventPipelineInfoCustomer
+from togai_client.model.event_pipeline_info_event_schema import EventPipelineInfoEventSchema
+from togai_client.model.event_pipeline_info_price_plans_inner import EventPipelineInfoPricePlansInner
+from togai_client.model.event_pipeline_info_usage_meters_inner import EventPipelineInfoUsageMetersInner
+from togai_client.model.event_schema import EventSchema
+from togai_client.model.event_schema_list_data import EventSchemaListData
+from togai_client.model.event_schema_list_data_all_of import EventSchemaListDataAllOf
+from togai_client.model.event_schema_list_paginated_response import EventSchemaListPaginatedResponse
+from togai_client.model.event_schema_versions_response import EventSchemaVersionsResponse
+from togai_client.model.event_with_status import EventWithStatus
+from togai_client.model.event_with_status_and_event_pipeline_info import EventWithStatusAndEventPipelineInfo
+from togai_client.model.event_with_status_and_event_pipeline_info_all_of import EventWithStatusAndEventPipelineInfoAllOf
+from togai_client.model.get_event_response import GetEventResponse
+from togai_client.model.get_events_response import GetEventsResponse
+from togai_client.model.get_metrics_request import GetMetricsRequest
+from togai_client.model.get_metrics_response import GetMetricsResponse
+from togai_client.model.ingest_batch_event_request import IngestBatchEventRequest
+from togai_client.model.ingest_batch_event_response import IngestBatchEventResponse
+from togai_client.model.ingest_error import IngestError
+from togai_client.model.ingest_event_request import IngestEventRequest
+from togai_client.model.ingest_event_response import IngestEventResponse
+from togai_client.model.ingestion_status import IngestionStatus
+from togai_client.model.metric_data_points import MetricDataPoints
+from togai_client.model.metric_data_points_grouped_by import MetricDataPointsGroupedBy
+from togai_client.model.metric_name import MetricName
+from togai_client.model.metric_query import MetricQuery
+from togai_client.model.metric_query_filter_entry import MetricQueryFilterEntry
+from togai_client.model.metric_query_response import MetricQueryResponse
+from togai_client.model.pagination_options import PaginationOptions
+from togai_client.model.plan_override import PlanOverride
+from togai_client.model.price_plan import PricePlan
+from togai_client.model.price_plan_list_data import PricePlanListData
+from togai_client.model.price_plan_paginated_response import PricePlanPaginatedResponse
+from togai_client.model.pricing_cycle import PricingCycle
+from togai_client.model.pricing_cycle_start_offset import PricingCycleStartOffset
+from togai_client.model.pricing_schedule import PricingSchedule
+from togai_client.model.rate_card import RateCard
+from togai_client.model.rate_card_bundle import RateCardBundle
+from togai_client.model.rate_card_usage import RateCardUsage
+from togai_client.model.rate_card_usage_value import RateCardUsageValue
+from togai_client.model.remove_account_aliases_request import RemoveAccountAliasesRequest
+from togai_client.model.signup_request import SignupRequest
+from togai_client.model.signup_response import SignupResponse
+from togai_client.model.status_response import StatusResponse
+from togai_client.model.status_response_headers import StatusResponseHeaders
+from togai_client.model.update_account_request import UpdateAccountRequest
+from togai_client.model.update_customer_request import UpdateCustomerRequest
+from togai_client.model.update_event_schema_request import UpdateEventSchemaRequest
+from togai_client.model.update_price_plan_request import UpdatePricePlanRequest
+from togai_client.model.update_usage_meter_request import UpdateUsageMeterRequest
+from togai_client.model.usage_meter import UsageMeter
+from togai_client.model.usage_meter_paginated_response import UsageMeterPaginatedResponse
+from togai_client.model.usage_strategy import UsageStrategy
+from togai_client.model.user_details import UserDetails
