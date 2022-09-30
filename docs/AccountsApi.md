@@ -151,6 +151,7 @@ with togai_client.ApiClient(configuration) as api_client:
     associate_price_plan_request = AssociatePricePlanRequest(
         price_plan_name="price_plan_name_example",
         effective_from=dateutil_parser('1970-01-01').date(),
+        effective_until=dateutil_parser('1970-01-01').date(),
         rate_card_override=RateCard(
             type="USAGE",
             usage_config=RateCardUsage(

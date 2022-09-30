@@ -86,6 +86,7 @@ class AssociatePricePlanRequest(ModelNormal):
         return {
             'price_plan_name': (str,),  # noqa: E501
             'effective_from': (date,),  # noqa: E501
+            'effective_until': (date,),  # noqa: E501
             'rate_card_override': (RateCard,),  # noqa: E501
         }
 
@@ -97,6 +98,7 @@ class AssociatePricePlanRequest(ModelNormal):
     attribute_map = {
         'price_plan_name': 'pricePlanName',  # noqa: E501
         'effective_from': 'effectiveFrom',  # noqa: E501
+        'effective_until': 'effectiveUntil',  # noqa: E501
         'rate_card_override': 'rateCardOverride',  # noqa: E501
     }
 
@@ -144,7 +146,8 @@ class AssociatePricePlanRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            effective_from (date): Date of effectiveness of the association. - Expected only if the account already has a price plan associated with it. - Date can only be startDate of any billing cycle of the currently associated price plan. . [optional]  # noqa: E501
+            effective_from (date): Date of effectiveness of the association. - Expected only if the account already has a price plan associated with it. . [optional]  # noqa: E501
+            effective_until (date): Date until which the association must be effective. - Expected only if effectiveFrom is present. . [optional]  # noqa: E501
             rate_card_override (RateCard): [optional]  # noqa: E501
         """
 
@@ -235,7 +238,8 @@ class AssociatePricePlanRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            effective_from (date): Date of effectiveness of the association. - Expected only if the account already has a price plan associated with it. - Date can only be startDate of any billing cycle of the currently associated price plan. . [optional]  # noqa: E501
+            effective_from (date): Date of effectiveness of the association. - Expected only if the account already has a price plan associated with it. . [optional]  # noqa: E501
+            effective_until (date): Date until which the association must be effective. - Expected only if effectiveFrom is present. . [optional]  # noqa: E501
             rate_card_override (RateCard): [optional]  # noqa: E501
         """
 

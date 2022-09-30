@@ -103,11 +103,12 @@ class PricingCycleStartOffset(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, day_offset, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, day_offset, month_offset, *args, **kwargs):  # noqa: E501
         """PricingCycleStartOffset - a model defined in OpenAPI
 
         Args:
             day_offset (str): min: \"1\" and max: \"31\" as strings. Spl. string allowed: LAST 
+            month_offset (str): min: \"1\" and max: \"12\". Spl. string allowed: FIRST / LAST. For QUARTERLY only 1 - 3 is allowed and for HALF_YEARLY 1 - 6. This being an optional field, shouldn't be passed for MONTHLY. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,7 +141,6 @@ class PricingCycleStartOffset(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            month_offset (str): min: \"1\" and max: \"12\". Spl. string allowed: FIRST / LAST. For QUARTERLY only 1 - 3 is allowed and for HALF_YEARLY 1 - 6. This being an optional field, shouldn't be passed for MONTHLY. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,6 +173,7 @@ class PricingCycleStartOffset(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.day_offset = day_offset
+        self.month_offset = month_offset
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,11 +194,12 @@ class PricingCycleStartOffset(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, day_offset, *args, **kwargs):  # noqa: E501
+    def __init__(self, day_offset, month_offset, *args, **kwargs):  # noqa: E501
         """PricingCycleStartOffset - a model defined in OpenAPI
 
         Args:
             day_offset (str): min: \"1\" and max: \"31\" as strings. Spl. string allowed: LAST 
+            month_offset (str): min: \"1\" and max: \"12\". Spl. string allowed: FIRST / LAST. For QUARTERLY only 1 - 3 is allowed and for HALF_YEARLY 1 - 6. This being an optional field, shouldn't be passed for MONTHLY. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,7 +232,6 @@ class PricingCycleStartOffset(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            month_offset (str): min: \"1\" and max: \"12\". Spl. string allowed: FIRST / LAST. For QUARTERLY only 1 - 3 is allowed and for HALF_YEARLY 1 - 6. This being an optional field, shouldn't be passed for MONTHLY. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +262,7 @@ class PricingCycleStartOffset(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.day_offset = day_offset
+        self.month_offset = month_offset
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
