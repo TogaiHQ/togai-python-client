@@ -1,6 +1,4 @@
 .gitignore
-.gitlab-ci.yml
-.travis.yml
 README.md
 docs/Account.md
 docs/AccountAliases.md
@@ -12,6 +10,7 @@ docs/AssociatePricePlanResponse.md
 docs/BaseSuccessResponse.md
 docs/BundleStrategy.md
 docs/BundleStrategyUsageMetersValue.md
+docs/Computation.md
 docs/CreateAccountRequest.md
 docs/CreateCustomerRequest.md
 docs/CreateCustomerResponse.md
@@ -40,10 +39,10 @@ docs/EventSchemaListData.md
 docs/EventSchemaListDataAllOf.md
 docs/EventSchemaListPaginatedResponse.md
 docs/EventSchemaVersionsResponse.md
+docs/EventSchemasApi.md
 docs/EventWithStatus.md
 docs/EventWithStatusAndEventPipelineInfo.md
 docs/EventWithStatusAndEventPipelineInfoAllOf.md
-docs/EventsApi.md
 docs/GetEventResponse.md
 docs/GetEventsResponse.md
 docs/GetMetricsRequest.md
@@ -100,7 +99,7 @@ togai_client/api/accounts_api.py
 togai_client/api/customers_api.py
 togai_client/api/event_ingestion_api.py
 togai_client/api/event_management_api.py
-togai_client/api/events_api.py
+togai_client/api/event_schemas_api.py
 togai_client/api/metrics_api.py
 togai_client/api/price_plans_api.py
 togai_client/api/usage_meters_api.py
@@ -118,6 +117,7 @@ togai_client/model/associate_price_plan_response.py
 togai_client/model/base_success_response.py
 togai_client/model/bundle_strategy.py
 togai_client/model/bundle_strategy_usage_meters_value.py
+togai_client/model/computation.py
 togai_client/model/create_account_request.py
 togai_client/model/create_customer_request.py
 togai_client/model/create_customer_response.py

@@ -1,17 +1,17 @@
-# togai_client.EventsApi
+# togai_client.EventSchemasApi
 
 All URIs are relative to *https://sandbox-api.togai.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**activate_event_schema**](EventsApi.md#activate_event_schema) | **POST** /event_schema/{event_schema_name}/activate | Activate an event schema
-[**create_event_schema**](EventsApi.md#create_event_schema) | **POST** /event_schema | Create an event schema
-[**deactivate_event_schema**](EventsApi.md#deactivate_event_schema) | **POST** /event_schema/{event_schema_name}/deactivate | Deactivate an event schema
-[**delete_event_schema**](EventsApi.md#delete_event_schema) | **DELETE** /event_schema/{event_schema_name} | Delete an event schema
-[**get_event_schema**](EventsApi.md#get_event_schema) | **GET** /event_schema/{event_schema_name} | Get an event schema
-[**list_event_schema_versions**](EventsApi.md#list_event_schema_versions) | **GET** /event_schema/{event_schema_name}/versions | List all event schema versions
-[**list_event_schemas**](EventsApi.md#list_event_schemas) | **GET** /event_schema | List event schemas
-[**update_event_schema**](EventsApi.md#update_event_schema) | **PATCH** /event_schema/{event_schema_name} | Update an event schema
+[**activate_event_schema**](EventSchemasApi.md#activate_event_schema) | **POST** /event_schema/{event_schema_name}/activate | Activate an event schema
+[**create_event_schema**](EventSchemasApi.md#create_event_schema) | **POST** /event_schema | Create an event schema
+[**deactivate_event_schema**](EventSchemasApi.md#deactivate_event_schema) | **POST** /event_schema/{event_schema_name}/deactivate | Deactivate an event schema
+[**delete_event_schema**](EventSchemasApi.md#delete_event_schema) | **DELETE** /event_schema/{event_schema_name} | Delete an event schema
+[**get_event_schema**](EventSchemasApi.md#get_event_schema) | **GET** /event_schema/{event_schema_name} | Get an event schema
+[**list_event_schema_versions**](EventSchemasApi.md#list_event_schema_versions) | **GET** /event_schema/{event_schema_name}/versions | List all event schema versions
+[**list_event_schemas**](EventSchemasApi.md#list_event_schemas) | **GET** /event_schema | List event schemas
+[**update_event_schema**](EventSchemasApi.md#update_event_schema) | **PATCH** /event_schema/{event_schema_name} | Update an event schema
 
 
 # **activate_event_schema**
@@ -28,7 +28,7 @@ Activate an event schema
 ```python
 import time
 import togai_client
-from togai_client.api import events_api
+from togai_client.api import event_schemas_api
 from togai_client.model.error_response import ErrorResponse
 from togai_client.model.event_schema import EventSchema
 from pprint import pprint
@@ -51,7 +51,7 @@ configuration = togai_client.Configuration(
 # Enter a context with an instance of the API client
 with togai_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = events_api.EventsApi(api_client)
+    api_instance = event_schemas_api.EventSchemasApi(api_client)
     event_schema_name =  # str | 
 
     # example passing only required values which don't have defaults set
@@ -60,7 +60,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.activate_event_schema(event_schema_name)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->activate_event_schema: %s\n" % e)
+        print("Exception when calling EventSchemasApi->activate_event_schema: %s\n" % e)
 ```
 
 
@@ -112,7 +112,7 @@ Create an event schema
 ```python
 import time
 import togai_client
-from togai_client.api import events_api
+from togai_client.api import event_schemas_api
 from togai_client.model.error_response import ErrorResponse
 from togai_client.model.event_schema import EventSchema
 from togai_client.model.create_event_schema_request import CreateEventSchemaRequest
@@ -136,7 +136,7 @@ configuration = togai_client.Configuration(
 # Enter a context with an instance of the API client
 with togai_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = events_api.EventsApi(api_client)
+    api_instance = event_schemas_api.EventSchemasApi(api_client)
     create_event_schema_request = CreateEventSchemaRequest(
         name='''HBXK5yBV3g
 8ZVqP4n2BNC''',
@@ -160,7 +160,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.create_event_schema(create_event_schema_request)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->create_event_schema: %s\n" % e)
+        print("Exception when calling EventSchemasApi->create_event_schema: %s\n" % e)
 ```
 
 
@@ -212,7 +212,7 @@ Deactivate an event schema
 ```python
 import time
 import togai_client
-from togai_client.api import events_api
+from togai_client.api import event_schemas_api
 from togai_client.model.error_response import ErrorResponse
 from togai_client.model.event_schema import EventSchema
 from pprint import pprint
@@ -235,7 +235,7 @@ configuration = togai_client.Configuration(
 # Enter a context with an instance of the API client
 with togai_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = events_api.EventsApi(api_client)
+    api_instance = event_schemas_api.EventSchemasApi(api_client)
     event_schema_name =  # str | 
 
     # example passing only required values which don't have defaults set
@@ -244,7 +244,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.deactivate_event_schema(event_schema_name)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->deactivate_event_schema: %s\n" % e)
+        print("Exception when calling EventSchemasApi->deactivate_event_schema: %s\n" % e)
 ```
 
 
@@ -296,7 +296,7 @@ Delete an event schema
 ```python
 import time
 import togai_client
-from togai_client.api import events_api
+from togai_client.api import event_schemas_api
 from togai_client.model.error_response import ErrorResponse
 from togai_client.model.base_success_response import BaseSuccessResponse
 from pprint import pprint
@@ -319,7 +319,7 @@ configuration = togai_client.Configuration(
 # Enter a context with an instance of the API client
 with togai_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = events_api.EventsApi(api_client)
+    api_instance = event_schemas_api.EventSchemasApi(api_client)
     event_schema_name =  # str | 
 
     # example passing only required values which don't have defaults set
@@ -328,7 +328,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.delete_event_schema(event_schema_name)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->delete_event_schema: %s\n" % e)
+        print("Exception when calling EventSchemasApi->delete_event_schema: %s\n" % e)
 ```
 
 
@@ -380,7 +380,7 @@ Get an event schema
 ```python
 import time
 import togai_client
-from togai_client.api import events_api
+from togai_client.api import event_schemas_api
 from togai_client.model.error_response import ErrorResponse
 from togai_client.model.event_schema import EventSchema
 from pprint import pprint
@@ -403,7 +403,7 @@ configuration = togai_client.Configuration(
 # Enter a context with an instance of the API client
 with togai_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = events_api.EventsApi(api_client)
+    api_instance = event_schemas_api.EventSchemasApi(api_client)
     event_schema_name =  # str | 
     version =  # int | Optional version to get a specific version. Gets latest version if it is not provided. (optional)
 
@@ -413,7 +413,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.get_event_schema(event_schema_name)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->get_event_schema: %s\n" % e)
+        print("Exception when calling EventSchemasApi->get_event_schema: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -422,7 +422,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.get_event_schema(event_schema_name, version=version)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->get_event_schema: %s\n" % e)
+        print("Exception when calling EventSchemasApi->get_event_schema: %s\n" % e)
 ```
 
 
@@ -475,7 +475,7 @@ List all event schema versions
 ```python
 import time
 import togai_client
-from togai_client.api import events_api
+from togai_client.api import event_schemas_api
 from togai_client.model.error_response import ErrorResponse
 from togai_client.model.event_schema_versions_response import EventSchemaVersionsResponse
 from pprint import pprint
@@ -498,7 +498,7 @@ configuration = togai_client.Configuration(
 # Enter a context with an instance of the API client
 with togai_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = events_api.EventsApi(api_client)
+    api_instance = event_schemas_api.EventSchemasApi(api_client)
     event_schema_name =  # str | 
 
     # example passing only required values which don't have defaults set
@@ -507,7 +507,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.list_event_schema_versions(event_schema_name)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->list_event_schema_versions: %s\n" % e)
+        print("Exception when calling EventSchemasApi->list_event_schema_versions: %s\n" % e)
 ```
 
 
@@ -559,7 +559,7 @@ List event schemas with pagination and sort
 ```python
 import time
 import togai_client
-from togai_client.api import events_api
+from togai_client.api import event_schemas_api
 from togai_client.model.event_schema_list_paginated_response import EventSchemaListPaginatedResponse
 from togai_client.model.error_response import ErrorResponse
 from pprint import pprint
@@ -582,7 +582,7 @@ configuration = togai_client.Configuration(
 # Enter a context with an instance of the API client
 with togai_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = events_api.EventsApi(api_client)
+    api_instance = event_schemas_api.EventSchemasApi(api_client)
     statuses = "statuses_example" # str | Filter by provided statuses (optional)
     next_token = "eyJsYXN0SXRlbUlkIjogInN0cmluZyIsICJwYWdlU2l6ZSI6IDEyMywgInNvcnRPcmRlciI6ICJhc2MifQ==" # str |  (optional)
     page_size = "10" # str |  (optional)
@@ -595,7 +595,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.list_event_schemas(statuses=statuses, next_token=next_token, page_size=page_size, sort_order=sort_order)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->list_event_schemas: %s\n" % e)
+        print("Exception when calling EventSchemasApi->list_event_schemas: %s\n" % e)
 ```
 
 
@@ -650,7 +650,7 @@ Update an event schema
 ```python
 import time
 import togai_client
-from togai_client.api import events_api
+from togai_client.api import event_schemas_api
 from togai_client.model.error_response import ErrorResponse
 from togai_client.model.event_schema import EventSchema
 from togai_client.model.update_event_schema_request import UpdateEventSchemaRequest
@@ -674,7 +674,7 @@ configuration = togai_client.Configuration(
 # Enter a context with an instance of the API client
 with togai_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = events_api.EventsApi(api_client)
+    api_instance = event_schemas_api.EventSchemasApi(api_client)
     event_schema_name =  # str | 
     update_event_schema_request = UpdateEventSchemaRequest(
         description="description_example",
@@ -697,7 +697,7 @@ with togai_client.ApiClient(configuration) as api_client:
         api_response = api_instance.update_event_schema(event_schema_name, update_event_schema_request)
         pprint(api_response)
     except togai_client.ApiException as e:
-        print("Exception when calling EventsApi->update_event_schema: %s\n" % e)
+        print("Exception when calling EventSchemasApi->update_event_schema: %s\n" % e)
 ```
 
 

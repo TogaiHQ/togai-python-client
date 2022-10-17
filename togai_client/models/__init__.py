@@ -18,6 +18,7 @@ from togai_client.model.associate_price_plan_response import AssociatePricePlanR
 from togai_client.model.base_success_response import BaseSuccessResponse
 from togai_client.model.bundle_strategy import BundleStrategy
 from togai_client.model.bundle_strategy_usage_meters_value import BundleStrategyUsageMetersValue
+from togai_client.model.computation import Computation
 from togai_client.model.create_account_request import CreateAccountRequest
 from togai_client.model.create_customer_request import CreateCustomerRequest
 from togai_client.model.create_customer_response import CreateCustomerResponse

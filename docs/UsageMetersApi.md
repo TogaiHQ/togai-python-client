@@ -145,7 +145,10 @@ with togai_client.ApiClient(configuration) as api_client:
         description="description_example",
         type="COUNTER",
         aggregation="DRAFT",
-        filters='''{
+        computations=[
+            Computation(
+                id="id_example",
+                matcher='''{
   "and": [
     {"in": [{"var": "dimension.city"}, "chennai", "mumbai"]},
     "or": [
@@ -155,7 +158,9 @@ with togai_client.ApiClient(configuration) as api_client:
   ]
 }
 ''',
-        computation="{"*":[{"var":"attributes.distance"},0.4]}",
+                computation="{"*":[{"var":"attributes.distance"},0.4]}",
+            ),
+        ],
     ) # CreateUsageMeterRequest | Payload to create usage meter
 
     # example passing only required values which don't have defaults set
@@ -607,7 +612,10 @@ with togai_client.ApiClient(configuration) as api_client:
         description="description_example",
         type="COUNTER",
         aggregation="COUNT",
-        filters='''{
+        computations=[
+            Computation(
+                id="id_example",
+                matcher='''{
   "and": [
     {"in": [{"var": "dimension.city"}, "chennai", "mumbai"]},
     "or": [
@@ -617,7 +625,9 @@ with togai_client.ApiClient(configuration) as api_client:
   ]
 }
 ''',
-        computation="{"*":[{"var":"attributes.distance"},0.4]}",
+                computation="{"*":[{"var":"attributes.distance"},0.4]}",
+            ),
+        ],
     ) # UpdateUsageMeterRequest | Payload to create usage meter
 
     # example passing only required values which don't have defaults set
