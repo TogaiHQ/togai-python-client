@@ -35,7 +35,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="Togai Apis",
-    author="OpenAPI Generator community",
+    author="Togai Engineering",
     author_email="engg@togai.com",
     url="https://github.com/TogaiHQ/togai-python-client",
     keywords=["OpenAPI", "OpenAPI-Generator", "Togai Apis"],
