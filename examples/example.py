@@ -1,6 +1,7 @@
 import datetime
 from pprint import pprint
 import random
+from time import sleep
 
 import togai_client
 from togai_client.api.event_schemas_api import EventSchemasApi
@@ -17,20 +18,22 @@ from togai_client.model.event import Event
 from togai_client.model.event_attribute import EventAttribute
 from togai_client.model.event_attribute_schema import EventAttributeSchema
 from togai_client.model.metric_name import MetricName
-from togai_client.model.pricing_cycle import PricingCycle
+from togai_client.model.price_plan_details import PricePlanDetails
+from togai_client.model.price_type import PriceType
+from togai_client.model.pricing_cycle_config import PricingCycleConfig
+from togai_client.model.pricing_cycle_config_start_offset import PricingCycleConfigStartOffset
+from togai_client.model.pricing_model import PricingModel
 from togai_client.model.rate_card import RateCard
-from togai_client.model.pricing_cycle_start_offset import PricingCycleStartOffset
 from togai_client.model.associate_price_plan_request import AssociatePricePlanRequest
 from togai_client.model.create_customer_request import CreateCustomerRequest
 from togai_client.model.create_price_plan_request import CreatePricePlanRequest
 from togai_client.model.create_usage_meter_request import CreateUsageMeterRequest
 from togai_client.model.ingest_event_request import IngestEventRequest
 from togai_client.model.get_metrics_request import GetMetricsRequest
-from togai_client.model.rate_card_usage import RateCardUsage
-from togai_client.model.rate_card_usage_value import RateCardUsageValue
-from togai_client.model.usage_strategy import UsageStrategy
 from togai_client.model.metric_query import MetricQuery
 from togai_client.model.metric_query_filter_entry import MetricQueryFilterEntry
+from togai_client.model.rate_config_usage import RateConfigUsage
+from togai_client.model.slab_usage import SlabUsage
 
 
 API_TOKEN = "YOUR_API_TOKEN"
@@ -97,38 +100,40 @@ usage_meters_api.activate_usage_meter(event_schema_name=event_schema.name, usage
 # Step 5: Create a Price plan to convert the usage into a billable price
 create_price_plan_request = CreatePricePlanRequest(
     name="price-plan",
-    pricing_cycle=PricingCycle(
-        interval="MONTHLY",
-        start_type="STATIC",
-        start_offset= PricingCycleStartOffset(
-            day_offset="1",
-            month_offset="NIL"
+    price_plan_details=PricePlanDetails(
+        pricing_cycle_config=PricingCycleConfig(
+            interval="MONTHLY",
+            start_type="STATIC",
+            start_offset= PricingCycleConfigStartOffset(
+                day_offset="1",
+                month_offset="NIL"
+            ),
+            grace_period=1
         ),
-        grace_period=1
-    ),
-    rate_card=RateCard(
-        type="USAGE",
-        usage_config=RateCardUsage(**{
-                usage_meter.name: RateCardUsageValue(
-                    name="SMS charges",
-                    rate_strategy="PER_UNIT",
-                    slab_strategy="TIER",
+        rate_cards=[
+            RateCard(
+                display_name="SMS charges",
+                pricing_model=PricingModel("TIERED"),
+                rate_config=RateConfigUsage(
+                    usage_meter_name=usage_meter.name,
                     slabs=[
-                        UsageStrategy(
+                        SlabUsage(
                             rate=0.2,
                             start_after=0.0,
+                            price_type=PriceType("PER_UNIT"),
                             order=1
                         ),
-                        UsageStrategy(
+                        SlabUsage(
                             rate=0.1,
                             start_after=10000.0,
+                            price_type=PriceType("PER_UNIT"),
                             order=2
                         )
                     ]
                 )
-            }
-        )
-    ),
+            )
+        ]
+    )
 )
 price_plan_api = PricePlansApi(api_client=api_client)
 price_plan = price_plan_api.create_price_plan(create_price_plan_request=create_price_plan_request)
@@ -151,7 +156,8 @@ pprint(customer)
 # Step 8: Associate the customer/account to the price plan
 associate_price_plan_request = AssociatePricePlanRequest(
     price_plan_name=price_plan.name,
-    effective_from=datetime.date.today()
+    effective_from=datetime.date.today(),
+    effective_until=datetime.date(9999, 1, 1)
 )
 associate_price_plan_api = AccountsApi(api_client=api_client)
 associate_price_plan = associate_price_plan_api.associate_price_plan(customer_id=customer.id, account_id=customer.id, associate_price_plan_request=associate_price_plan_request)
@@ -178,6 +184,8 @@ event_request = IngestEventRequest(
 )
 event = events_api.ingest(ingest_event_request=event_request)
 pprint(event)
+
+sleep(60)
 
 # Step 10: Get the usage metrics 
 now = datetime.datetime.utcnow()

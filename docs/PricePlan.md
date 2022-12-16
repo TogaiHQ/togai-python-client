@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the price plan | 
 **status** | **str** | Status of Price plan | 
-**pricing_cycle** | [**PricingCycle**](PricingCycle.md) |  | 
 **pricing_schedule** | [**[PricingSchedule]**](PricingSchedule.md) |  | 
 **description** | **str** | Description of price plan | [optional] 
 

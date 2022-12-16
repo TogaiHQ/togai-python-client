@@ -31,8 +31,8 @@ from togai_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from togai_client.model.rate_card import RateCard
-    globals()['RateCard'] = RateCard
+    from togai_client.model.price_plan_details import PricePlanDetails
+    globals()['PricePlanDetails'] = PricePlanDetails
 
 
 class PricingSchedule(ModelNormal):
@@ -83,7 +83,7 @@ class PricingSchedule(ModelNormal):
         return {
             'start_date': (datetime,),  # noqa: E501
             'end_date': (datetime,),  # noqa: E501
-            'rate_payload': (RateCard,),  # noqa: E501
+            'price_plan_details': (PricePlanDetails,),  # noqa: E501
         }
 
     @cached_property
@@ -94,7 +94,7 @@ class PricingSchedule(ModelNormal):
     attribute_map = {
         'start_date': 'startDate',  # noqa: E501
         'end_date': 'endDate',  # noqa: E501
-        'rate_payload': 'ratePayload',  # noqa: E501
+        'price_plan_details': 'pricePlanDetails',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,7 +142,7 @@ class PricingSchedule(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rate_payload (RateCard): [optional]  # noqa: E501
+            price_plan_details (PricePlanDetails): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,7 +234,7 @@ class PricingSchedule(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rate_payload (RateCard): [optional]  # noqa: E501
+            price_plan_details (PricePlanDetails): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

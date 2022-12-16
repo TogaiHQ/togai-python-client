@@ -80,6 +80,7 @@ class EventPipelineInfoPricePlansInner(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'schedule_id': (str,),  # noqa: E501
             'cycle_start': (date,),  # noqa: E501
             'cycle_end': (date,),  # noqa: E501
             'usage_meters': ([str],),  # noqa: E501
@@ -93,6 +94,7 @@ class EventPipelineInfoPricePlansInner(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'schedule_id': 'scheduleId',  # noqa: E501
         'cycle_start': 'cycleStart',  # noqa: E501
         'cycle_end': 'cycleEnd',  # noqa: E501
         'usage_meters': 'usageMeters',  # noqa: E501
@@ -105,12 +107,13 @@ class EventPipelineInfoPricePlansInner(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, id, cycle_start, cycle_end, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, id, schedule_id, cycle_start, cycle_end, *args, **kwargs):  # noqa: E501
         """EventPipelineInfoPricePlansInner - a model defined in OpenAPI
 
         Args:
             name (str):
             id (str):
+            schedule_id (str):
             cycle_start (date):
             cycle_end (date):
 
@@ -179,6 +182,7 @@ class EventPipelineInfoPricePlansInner(ModelNormal):
 
         self.name = name
         self.id = id
+        self.schedule_id = schedule_id
         self.cycle_start = cycle_start
         self.cycle_end = cycle_end
         for var_name, var_value in kwargs.items():
@@ -201,12 +205,13 @@ class EventPipelineInfoPricePlansInner(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, id, cycle_start, cycle_end, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, id, schedule_id, cycle_start, cycle_end, *args, **kwargs):  # noqa: E501
         """EventPipelineInfoPricePlansInner - a model defined in OpenAPI
 
         Args:
             name (str):
             id (str):
+            schedule_id (str):
             cycle_start (date):
             cycle_end (date):
 
@@ -273,6 +278,7 @@ class EventPipelineInfoPricePlansInner(ModelNormal):
 
         self.name = name
         self.id = id
+        self.schedule_id = schedule_id
         self.cycle_start = cycle_start
         self.cycle_end = cycle_end
         for var_name, var_value in kwargs.items():

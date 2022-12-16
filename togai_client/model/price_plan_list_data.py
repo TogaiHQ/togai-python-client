@@ -31,8 +31,8 @@ from togai_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from togai_client.model.pricing_cycle import PricingCycle
-    globals()['PricingCycle'] = PricingCycle
+    from togai_client.model.price_plan_details import PricePlanDetails
+    globals()['PricePlanDetails'] = PricePlanDetails
 
 
 class PricePlanListData(ModelNormal):
@@ -94,9 +94,8 @@ class PricePlanListData(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
-            'pricing_cycle': (PricingCycle,),  # noqa: E501
             'usage_meters': ([str],),  # noqa: E501
-            'pricing_type': (str,),  # noqa: E501
+            'price_plan_details': (PricePlanDetails,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -110,9 +109,8 @@ class PricePlanListData(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'pricing_cycle': 'pricingCycle',  # noqa: E501
         'usage_meters': 'usageMeters',  # noqa: E501
-        'pricing_type': 'pricingType',  # noqa: E501
+        'price_plan_details': 'pricePlanDetails',  # noqa: E501
         'created_at': 'createdAt',  # noqa: E501
         'updated_at': 'updatedAt',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -125,15 +123,14 @@ class PricePlanListData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, status, pricing_cycle, usage_meters, pricing_type, created_at, updated_at, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, status, usage_meters, price_plan_details, created_at, updated_at, *args, **kwargs):  # noqa: E501
         """PricePlanListData - a model defined in OpenAPI
 
         Args:
             name (str): Name of the price plan
             status (str): Status of Price plan
-            pricing_cycle (PricingCycle):
             usage_meters ([str]): Usage meters name linked to the price plan
-            pricing_type (str): Pricing type of the price plan
+            price_plan_details (PricePlanDetails):
             created_at (datetime):
             updated_at (datetime):
 
@@ -202,9 +199,8 @@ class PricePlanListData(ModelNormal):
 
         self.name = name
         self.status = status
-        self.pricing_cycle = pricing_cycle
         self.usage_meters = usage_meters
-        self.pricing_type = pricing_type
+        self.price_plan_details = price_plan_details
         self.created_at = created_at
         self.updated_at = updated_at
         for var_name, var_value in kwargs.items():
@@ -227,15 +223,14 @@ class PricePlanListData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, status, pricing_cycle, usage_meters, pricing_type, created_at, updated_at, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, status, usage_meters, price_plan_details, created_at, updated_at, *args, **kwargs):  # noqa: E501
         """PricePlanListData - a model defined in OpenAPI
 
         Args:
             name (str): Name of the price plan
             status (str): Status of Price plan
-            pricing_cycle (PricingCycle):
             usage_meters ([str]): Usage meters name linked to the price plan
-            pricing_type (str): Pricing type of the price plan
+            price_plan_details (PricePlanDetails):
             created_at (datetime):
             updated_at (datetime):
 
@@ -302,9 +297,8 @@ class PricePlanListData(ModelNormal):
 
         self.name = name
         self.status = status
-        self.pricing_cycle = pricing_cycle
         self.usage_meters = usage_meters
-        self.pricing_type = pricing_type
+        self.price_plan_details = price_plan_details
         self.created_at = created_at
         self.updated_at = updated_at
         for var_name, var_value in kwargs.items():

@@ -31,9 +31,7 @@ from togai_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from togai_client.model.pricing_cycle import PricingCycle
     from togai_client.model.pricing_schedule import PricingSchedule
-    globals()['PricingCycle'] = PricingCycle
     globals()['PricingSchedule'] = PricingSchedule
 
 
@@ -96,7 +94,6 @@ class PricePlan(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
-            'pricing_cycle': (PricingCycle,),  # noqa: E501
             'pricing_schedule': ([PricingSchedule],),  # noqa: E501
             'description': (str,),  # noqa: E501
         }
@@ -109,7 +106,6 @@ class PricePlan(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'pricing_cycle': 'pricingCycle',  # noqa: E501
         'pricing_schedule': 'pricingSchedule',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
@@ -121,13 +117,12 @@ class PricePlan(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, status, pricing_cycle, pricing_schedule, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, status, pricing_schedule, *args, **kwargs):  # noqa: E501
         """PricePlan - a model defined in OpenAPI
 
         Args:
             name (str): Name of the price plan
             status (str): Status of Price plan
-            pricing_cycle (PricingCycle):
             pricing_schedule ([PricingSchedule]):
 
         Keyword Args:
@@ -195,7 +190,6 @@ class PricePlan(ModelNormal):
 
         self.name = name
         self.status = status
-        self.pricing_cycle = pricing_cycle
         self.pricing_schedule = pricing_schedule
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -217,13 +211,12 @@ class PricePlan(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, status, pricing_cycle, pricing_schedule, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, status, pricing_schedule, *args, **kwargs):  # noqa: E501
         """PricePlan - a model defined in OpenAPI
 
         Args:
             name (str): Name of the price plan
             status (str): Status of Price plan
-            pricing_cycle (PricingCycle):
             pricing_schedule ([PricingSchedule]):
 
         Keyword Args:
@@ -289,7 +282,6 @@ class PricePlan(ModelNormal):
 
         self.name = name
         self.status = status
-        self.pricing_cycle = pricing_cycle
         self.pricing_schedule = pricing_schedule
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

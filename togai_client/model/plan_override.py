@@ -31,8 +31,8 @@ from togai_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from togai_client.model.rate_card import RateCard
-    globals()['RateCard'] = RateCard
+    from togai_client.model.price_plan_details_override import PricePlanDetailsOverride
+    globals()['PricePlanDetailsOverride'] = PricePlanDetailsOverride
 
 
 class PlanOverride(ModelNormal):
@@ -84,7 +84,7 @@ class PlanOverride(ModelNormal):
             'price_plan_name': (str,),  # noqa: E501
             'start_date': (datetime,),  # noqa: E501
             'end_date': (datetime,),  # noqa: E501
-            'override': (RateCard,),  # noqa: E501
+            'price_plan_details_override': (PricePlanDetailsOverride,),  # noqa: E501
         }
 
     @cached_property
@@ -96,7 +96,7 @@ class PlanOverride(ModelNormal):
         'price_plan_name': 'pricePlanName',  # noqa: E501
         'start_date': 'startDate',  # noqa: E501
         'end_date': 'endDate',  # noqa: E501
-        'override': 'override',  # noqa: E501
+        'price_plan_details_override': 'pricePlanDetailsOverride',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,7 +145,7 @@ class PlanOverride(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            override (RateCard): [optional]  # noqa: E501
+            price_plan_details_override (PricePlanDetailsOverride): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,7 +239,7 @@ class PlanOverride(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            override (RateCard): [optional]  # noqa: E501
+            price_plan_details_override (PricePlanDetailsOverride): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

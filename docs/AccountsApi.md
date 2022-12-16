@@ -152,38 +152,36 @@ with togai_client.ApiClient(configuration) as api_client:
         price_plan_name="price_plan_name_example",
         effective_from=dateutil_parser('1970-01-01').date(),
         effective_until=dateutil_parser('1970-01-01').date(),
-        rate_card_override=RateCard(
-            type="USAGE",
-            usage_config=RateCardUsage(
-                key=RateCardUsageValue(
-                    name="name_example",
-                    rate_strategy="FLAT",
-                    slab_strategy="TIER",
-                    slabs=[
-                        UsageStrategy(
-                            rate=3.14,
-                            start_after=3.14,
-                            order=1,
-                        ),
-                    ],
+        price_plan_details_override=PricePlanDetailsOverride(
+            pricing_cycle_config=PricingCycleConfig(
+                interval="MONTHLY",
+                start_type="STATIC",
+                start_offset=PricingCycleConfigStartOffset(
+                    day_offset="day_offset_example",
+                    month_offset="month_offset_example",
                 ),
+                grace_period=3,
             ),
-            bundle_config=RateCardBundle(
-                rate_strategy="FLAT",
-                slab_strategy="TIER",
-                bundles=[
-                    BundleStrategy(
-                        name="name_example",
-                        rate=3.14,
-                        order=1,
-                        usage_meters={
-                            "key": BundleStrategyUsageMetersValue(
+            rate_cards=[
+                RateCard(
+                    display_name="display_name_example",
+                    pricing_model=PricingModel("TIERED"),
+                    rate_config=RateConfigUsage(
+                        usage_meter_name="usage_meter_name_example",
+                        slabs=[
+                            SlabUsage(
+                                rate=3.14,
                                 start_after=3.14,
+                                price_type=PriceType("FLAT"),
+                                config={
+                                    "key": "key_example",
+                                },
+                                order=1,
                             ),
-                        },
+                        ],
                     ),
-                ],
-            ),
+                ),
+            ],
         ),
     ) # AssociatePricePlanRequest | Payload to associate a price plan to an account
 

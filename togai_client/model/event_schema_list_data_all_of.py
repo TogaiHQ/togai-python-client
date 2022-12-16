@@ -82,7 +82,7 @@ class EventSchemaListDataAllOf(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'associated_usage_meters': ([str],),  # noqa: E501
+            'usage_meters_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -91,7 +91,7 @@ class EventSchemaListDataAllOf(ModelNormal):
 
 
     attribute_map = {
-        'associated_usage_meters': 'associatedUsageMeters',  # noqa: E501
+        'usage_meters_count': 'usageMetersCount',  # noqa: E501
     }
 
     read_only_vars = {
@@ -135,7 +135,7 @@ class EventSchemaListDataAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            associated_usage_meters ([str]): [optional]  # noqa: E501
+            usage_meters_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +221,7 @@ class EventSchemaListDataAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            associated_usage_meters ([str]): [optional]  # noqa: E501
+            usage_meters_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

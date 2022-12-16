@@ -7,9 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the price plan | 
 **status** | **str** | Status of Price plan | 
-**pricing_cycle** | [**PricingCycle**](PricingCycle.md) |  | 
 **usage_meters** | **[str]** | Usage meters name linked to the price plan | 
-**pricing_type** | **str** | Pricing type of the price plan | 
+**price_plan_details** | [**PricePlanDetails**](PricePlanDetails.md) |  | 
 **created_at** | **datetime** |  | 
 **updated_at** | **datetime** |  | 
 **description** | **str** | Description of price plan | [optional] 

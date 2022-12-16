@@ -137,47 +137,36 @@ with togai_client.ApiClient(configuration) as api_client:
     create_price_plan_request = CreatePricePlanRequest(
         name="name_example",
         description="description_example",
-        pricing_cycle=PricingCycle(
-            interval="MONTHLY",
-            start_type="STATIC",
-            start_offset=PricingCycleStartOffset(
-                day_offset="day_offset_example",
-                month_offset="month_offset_example",
-            ),
-            grace_period=3,
-        ),
-        rate_card=RateCard(
-            type="USAGE",
-            usage_config=RateCardUsage(
-                key=RateCardUsageValue(
-                    name="name_example",
-                    rate_strategy="FLAT",
-                    slab_strategy="TIER",
-                    slabs=[
-                        UsageStrategy(
-                            rate=3.14,
-                            start_after=3.14,
-                            order=1,
-                        ),
-                    ],
+        price_plan_details=PricePlanDetails(
+            pricing_cycle_config=PricingCycleConfig(
+                interval="MONTHLY",
+                start_type="STATIC",
+                start_offset=PricingCycleConfigStartOffset(
+                    day_offset="day_offset_example",
+                    month_offset="month_offset_example",
                 ),
+                grace_period=3,
             ),
-            bundle_config=RateCardBundle(
-                rate_strategy="FLAT",
-                slab_strategy="TIER",
-                bundles=[
-                    BundleStrategy(
-                        name="name_example",
-                        rate=3.14,
-                        order=1,
-                        usage_meters={
-                            "key": BundleStrategyUsageMetersValue(
+            rate_cards=[
+                RateCard(
+                    display_name="display_name_example",
+                    pricing_model=PricingModel("TIERED"),
+                    rate_config=RateConfigUsage(
+                        usage_meter_name="usage_meter_name_example",
+                        slabs=[
+                            SlabUsage(
+                                rate=3.14,
                                 start_after=3.14,
+                                price_type=PriceType("FLAT"),
+                                config={
+                                    "key": "key_example",
+                                },
+                                order=1,
                             ),
-                        },
+                        ],
                     ),
-                ],
-            ),
+                ),
+            ],
         ),
     ) # CreatePricePlanRequest | Payload to create price plan
 
@@ -438,47 +427,36 @@ with togai_client.ApiClient(configuration) as api_client:
     price_plan_name =  # str | 
     update_price_plan_request = UpdatePricePlanRequest(
         description="description_example",
-        pricing_cycle=PricingCycle(
-            interval="MONTHLY",
-            start_type="STATIC",
-            start_offset=PricingCycleStartOffset(
-                day_offset="day_offset_example",
-                month_offset="month_offset_example",
-            ),
-            grace_period=3,
-        ),
-        rate_card=RateCard(
-            type="USAGE",
-            usage_config=RateCardUsage(
-                key=RateCardUsageValue(
-                    name="name_example",
-                    rate_strategy="FLAT",
-                    slab_strategy="TIER",
-                    slabs=[
-                        UsageStrategy(
-                            rate=3.14,
-                            start_after=3.14,
-                            order=1,
-                        ),
-                    ],
+        price_plan_details=PricePlanDetailsOverride(
+            pricing_cycle_config=PricingCycleConfig(
+                interval="MONTHLY",
+                start_type="STATIC",
+                start_offset=PricingCycleConfigStartOffset(
+                    day_offset="day_offset_example",
+                    month_offset="month_offset_example",
                 ),
+                grace_period=3,
             ),
-            bundle_config=RateCardBundle(
-                rate_strategy="FLAT",
-                slab_strategy="TIER",
-                bundles=[
-                    BundleStrategy(
-                        name="name_example",
-                        rate=3.14,
-                        order=1,
-                        usage_meters={
-                            "key": BundleStrategyUsageMetersValue(
+            rate_cards=[
+                RateCard(
+                    display_name="display_name_example",
+                    pricing_model=PricingModel("TIERED"),
+                    rate_config=RateConfigUsage(
+                        usage_meter_name="usage_meter_name_example",
+                        slabs=[
+                            SlabUsage(
+                                rate=3.14,
                                 start_after=3.14,
+                                price_type=PriceType("FLAT"),
+                                config={
+                                    "key": "key_example",
+                                },
+                                order=1,
                             ),
-                        },
+                        ],
                     ),
-                ],
-            ),
+                ),
+            ],
         ),
     ) # UpdatePricePlanRequest | Payload to update price plan
 

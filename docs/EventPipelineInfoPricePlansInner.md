@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
 **id** | **str** |  | 
+**schedule_id** | **str** |  | 
 **cycle_start** | **date** |  | 
 **cycle_end** | **date** |  | 
 **usage_meters** | **[str]** |  | [optional] 

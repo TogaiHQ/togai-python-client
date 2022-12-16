@@ -126,7 +126,7 @@ class EventSchemaListData(ModelComposed):
             'dimensions': ([DimensionsSchema],),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'associated_usage_meters': ([str],),  # noqa: E501
+            'usage_meters_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -143,7 +143,7 @@ class EventSchemaListData(ModelComposed):
         'dimensions': 'dimensions',  # noqa: E501
         'created_at': 'createdAt',  # noqa: E501
         'updated_at': 'updatedAt',  # noqa: E501
-        'associated_usage_meters': 'associatedUsageMeters',  # noqa: E501
+        'usage_meters_count': 'usageMetersCount',  # noqa: E501
     }
 
     read_only_vars = {
@@ -193,7 +193,7 @@ class EventSchemaListData(ModelComposed):
             dimensions ([DimensionsSchema]): [optional]  # noqa: E501
             created_at (datetime): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
-            associated_usage_meters ([str]): [optional]  # noqa: E501
+            usage_meters_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -305,7 +305,7 @@ class EventSchemaListData(ModelComposed):
             dimensions ([DimensionsSchema]): [optional]  # noqa: E501
             created_at (datetime): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
-            associated_usage_meters ([str]): [optional]  # noqa: E501
+            usage_meters_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

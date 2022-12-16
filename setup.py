@@ -18,7 +18,7 @@ long_description = (this_directory / "README.md").read_text()
 
 
 NAME = "togai-client"
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 # To install the library, run the following
 #
 # python setup.py install

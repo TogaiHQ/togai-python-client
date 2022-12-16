@@ -75,7 +75,6 @@ class Customer(ModelNormal):
         },
         ('billing_address',): {
             'max_length': 1000,
-            'min_length': 50,
         },
     }
 

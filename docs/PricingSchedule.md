@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **start_date** | **datetime** |  | 
 **end_date** | **datetime** |  | 
-**rate_payload** | [**RateCard**](RateCard.md) |  | [optional] 
+**price_plan_details** | [**PricePlanDetails**](PricePlanDetails.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -31,10 +31,8 @@ from togai_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from togai_client.model.pricing_cycle import PricingCycle
-    from togai_client.model.rate_card import RateCard
-    globals()['PricingCycle'] = PricingCycle
-    globals()['RateCard'] = RateCard
+    from togai_client.model.price_plan_details_override import PricePlanDetailsOverride
+    globals()['PricePlanDetailsOverride'] = PricePlanDetailsOverride
 
 
 class UpdatePricePlanRequest(ModelNormal):
@@ -87,8 +85,7 @@ class UpdatePricePlanRequest(ModelNormal):
         lazy_import()
         return {
             'description': (str,),  # noqa: E501
-            'pricing_cycle': (PricingCycle,),  # noqa: E501
-            'rate_card': (RateCard,),  # noqa: E501
+            'price_plan_details': (PricePlanDetailsOverride,),  # noqa: E501
         }
 
     @cached_property
@@ -98,8 +95,7 @@ class UpdatePricePlanRequest(ModelNormal):
 
     attribute_map = {
         'description': 'description',  # noqa: E501
-        'pricing_cycle': 'pricingCycle',  # noqa: E501
-        'rate_card': 'rateCard',  # noqa: E501
+        'price_plan_details': 'pricePlanDetails',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,8 +140,7 @@ class UpdatePricePlanRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): Description of price plan. [optional]  # noqa: E501
-            pricing_cycle (PricingCycle): [optional]  # noqa: E501
-            rate_card (RateCard): [optional]  # noqa: E501
+            price_plan_details (PricePlanDetailsOverride): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,8 +227,7 @@ class UpdatePricePlanRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): Description of price plan. [optional]  # noqa: E501
-            pricing_cycle (PricingCycle): [optional]  # noqa: E501
-            rate_card (RateCard): [optional]  # noqa: E501
+            price_plan_details (PricePlanDetailsOverride): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

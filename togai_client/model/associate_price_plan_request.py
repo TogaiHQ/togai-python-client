@@ -31,8 +31,8 @@ from togai_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from togai_client.model.rate_card import RateCard
-    globals()['RateCard'] = RateCard
+    from togai_client.model.price_plan_details_override import PricePlanDetailsOverride
+    globals()['PricePlanDetailsOverride'] = PricePlanDetailsOverride
 
 
 class AssociatePricePlanRequest(ModelNormal):
@@ -87,7 +87,7 @@ class AssociatePricePlanRequest(ModelNormal):
             'price_plan_name': (str,),  # noqa: E501
             'effective_from': (date,),  # noqa: E501
             'effective_until': (date,),  # noqa: E501
-            'rate_card_override': (RateCard,),  # noqa: E501
+            'price_plan_details_override': (PricePlanDetailsOverride,),  # noqa: E501
         }
 
     @cached_property
@@ -99,7 +99,7 @@ class AssociatePricePlanRequest(ModelNormal):
         'price_plan_name': 'pricePlanName',  # noqa: E501
         'effective_from': 'effectiveFrom',  # noqa: E501
         'effective_until': 'effectiveUntil',  # noqa: E501
-        'rate_card_override': 'rateCardOverride',  # noqa: E501
+        'price_plan_details_override': 'pricePlanDetailsOverride',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,11 +109,13 @@ class AssociatePricePlanRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, price_plan_name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, price_plan_name, effective_from, effective_until, *args, **kwargs):  # noqa: E501
         """AssociatePricePlanRequest - a model defined in OpenAPI
 
         Args:
             price_plan_name (str): Name of the price plan
+            effective_from (date): Date of effectiveness of the association. - Expected only if the account already has a price plan associated with it. 
+            effective_until (date): Date until which the association must be effective. - Expected only if effectiveFrom is present. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,9 +148,7 @@ class AssociatePricePlanRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            effective_from (date): Date of effectiveness of the association. - Expected only if the account already has a price plan associated with it. . [optional]  # noqa: E501
-            effective_until (date): Date until which the association must be effective. - Expected only if effectiveFrom is present. . [optional]  # noqa: E501
-            rate_card_override (RateCard): [optional]  # noqa: E501
+            price_plan_details_override (PricePlanDetailsOverride): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -181,6 +181,8 @@ class AssociatePricePlanRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.price_plan_name = price_plan_name
+        self.effective_from = effective_from
+        self.effective_until = effective_until
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -201,11 +203,13 @@ class AssociatePricePlanRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, price_plan_name, *args, **kwargs):  # noqa: E501
+    def __init__(self, price_plan_name, effective_from, effective_until, *args, **kwargs):  # noqa: E501
         """AssociatePricePlanRequest - a model defined in OpenAPI
 
         Args:
             price_plan_name (str): Name of the price plan
+            effective_from (date): Date of effectiveness of the association. - Expected only if the account already has a price plan associated with it. 
+            effective_until (date): Date until which the association must be effective. - Expected only if effectiveFrom is present. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,9 +242,7 @@ class AssociatePricePlanRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            effective_from (date): Date of effectiveness of the association. - Expected only if the account already has a price plan associated with it. . [optional]  # noqa: E501
-            effective_until (date): Date until which the association must be effective. - Expected only if effectiveFrom is present. . [optional]  # noqa: E501
-            rate_card_override (RateCard): [optional]  # noqa: E501
+            price_plan_details_override (PricePlanDetailsOverride): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,6 +273,8 @@ class AssociatePricePlanRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.price_plan_name = price_plan_name
+        self.effective_from = effective_from
+        self.effective_until = effective_until
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

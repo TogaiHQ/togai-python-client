@@ -6,7 +6,7 @@
 This is an official Typescript client library for using [Togai APIs](https://docs.togai.com/reference).
 
 - API version: 1.0
-- Package version: 1.0.1
+- Package version: 1.0.2
 For more information, please visit [https://docs.togai.com](https://docs.togai.com)
 
 ## Requirements.

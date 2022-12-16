@@ -31,10 +31,10 @@ from togai_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from togai_client.model.rate_card_bundle import RateCardBundle
-    from togai_client.model.rate_card_usage import RateCardUsage
-    globals()['RateCardBundle'] = RateCardBundle
-    globals()['RateCardUsage'] = RateCardUsage
+    from togai_client.model.pricing_model import PricingModel
+    from togai_client.model.rate_config_usage import RateConfigUsage
+    globals()['PricingModel'] = PricingModel
+    globals()['RateConfigUsage'] = RateConfigUsage
 
 
 class RateCard(ModelNormal):
@@ -62,10 +62,6 @@ class RateCard(ModelNormal):
     """
 
     allowed_values = {
-        ('type',): {
-            'USAGE': "USAGE",
-            'BUNDLE': "BUNDLE",
-        },
     }
 
     validations = {
@@ -94,9 +90,9 @@ class RateCard(ModelNormal):
         """
         lazy_import()
         return {
-            'type': (str,),  # noqa: E501
-            'usage_config': (RateCardUsage,),  # noqa: E501
-            'bundle_config': (RateCardBundle,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
+            'pricing_model': (PricingModel,),  # noqa: E501
+            'rate_config': (RateConfigUsage,),  # noqa: E501
         }
 
     @cached_property
@@ -105,9 +101,9 @@ class RateCard(ModelNormal):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
-        'usage_config': 'usageConfig',  # noqa: E501
-        'bundle_config': 'bundleConfig',  # noqa: E501
+        'display_name': 'displayName',  # noqa: E501
+        'pricing_model': 'pricingModel',  # noqa: E501
+        'rate_config': 'rateConfig',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,11 +113,13 @@ class RateCard(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, display_name, pricing_model, rate_config, *args, **kwargs):  # noqa: E501
         """RateCard - a model defined in OpenAPI
 
         Args:
-            type (str):
+            display_name (str):
+            pricing_model (PricingModel):
+            rate_config (RateConfigUsage):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -154,8 +152,6 @@ class RateCard(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            usage_config (RateCardUsage): [optional]  # noqa: E501
-            bundle_config (RateCardBundle): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -187,7 +183,9 @@ class RateCard(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
+        self.display_name = display_name
+        self.pricing_model = pricing_model
+        self.rate_config = rate_config
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,11 +206,13 @@ class RateCard(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, *args, **kwargs):  # noqa: E501
+    def __init__(self, display_name, pricing_model, rate_config, *args, **kwargs):  # noqa: E501
         """RateCard - a model defined in OpenAPI
 
         Args:
-            type (str):
+            display_name (str):
+            pricing_model (PricingModel):
+            rate_config (RateConfigUsage):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -245,8 +245,6 @@ class RateCard(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            usage_config (RateCardUsage): [optional]  # noqa: E501
-            bundle_config (RateCardBundle): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -276,7 +274,9 @@ class RateCard(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
+        self.display_name = display_name
+        self.pricing_model = pricing_model
+        self.rate_config = rate_config
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

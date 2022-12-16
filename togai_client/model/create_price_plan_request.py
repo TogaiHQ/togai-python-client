@@ -31,10 +31,8 @@ from togai_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from togai_client.model.pricing_cycle import PricingCycle
-    from togai_client.model.rate_card import RateCard
-    globals()['PricingCycle'] = PricingCycle
-    globals()['RateCard'] = RateCard
+    from togai_client.model.price_plan_details import PricePlanDetails
+    globals()['PricePlanDetails'] = PricePlanDetails
 
 
 class CreatePricePlanRequest(ModelNormal):
@@ -90,8 +88,7 @@ class CreatePricePlanRequest(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'pricing_cycle': (PricingCycle,),  # noqa: E501
-            'rate_card': (RateCard,),  # noqa: E501
+            'price_plan_details': (PricePlanDetails,),  # noqa: E501
             'description': (str,),  # noqa: E501
         }
 
@@ -102,8 +99,7 @@ class CreatePricePlanRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'pricing_cycle': 'pricingCycle',  # noqa: E501
-        'rate_card': 'rateCard',  # noqa: E501
+        'price_plan_details': 'pricePlanDetails',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
 
@@ -114,13 +110,12 @@ class CreatePricePlanRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, pricing_cycle, rate_card, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, price_plan_details, *args, **kwargs):  # noqa: E501
         """CreatePricePlanRequest - a model defined in OpenAPI
 
         Args:
             name (str): Name of the price plan
-            pricing_cycle (PricingCycle):
-            rate_card (RateCard):
+            price_plan_details (PricePlanDetails):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -186,8 +181,7 @@ class CreatePricePlanRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.pricing_cycle = pricing_cycle
-        self.rate_card = rate_card
+        self.price_plan_details = price_plan_details
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,13 +202,12 @@ class CreatePricePlanRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, pricing_cycle, rate_card, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, price_plan_details, *args, **kwargs):  # noqa: E501
         """CreatePricePlanRequest - a model defined in OpenAPI
 
         Args:
             name (str): Name of the price plan
-            pricing_cycle (PricingCycle):
-            rate_card (RateCard):
+            price_plan_details (PricePlanDetails):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -278,8 +271,7 @@ class CreatePricePlanRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.pricing_cycle = pricing_cycle
-        self.rate_card = rate_card
+        self.price_plan_details = price_plan_details
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

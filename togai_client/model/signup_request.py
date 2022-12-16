@@ -65,9 +65,6 @@ class SignupRequest(ModelNormal):
     validations = {
         ('name',): {
             'max_length': 50,
-            'regex': {
-                'pattern': r'^[_a-zA-Z0-9-\s]{3,50}$',  # noqa: E501
-            },
         },
         ('description',): {
             'max_length': 500,

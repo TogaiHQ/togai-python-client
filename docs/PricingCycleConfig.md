@@ -1,13 +1,14 @@
-# UsageStrategy
+# PricingCycleConfig
 
-Represents a pricing strategy (rates + slabs) for usage price plan
+Represents configurations related to pricing cycle
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rate** | **float** |  | 
-**start_after** | **float** |  | 
-**order** | **int** |  | 
+**interval** | **str** |  | 
+**start_offset** | [**PricingCycleConfigStartOffset**](PricingCycleConfigStartOffset.md) |  | 
+**grace_period** | **int** |  | 
+**start_type** | **str** |  | defaults to "STATIC"
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
